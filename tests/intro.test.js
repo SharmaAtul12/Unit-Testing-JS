@@ -1,5 +1,5 @@
 import {describe,test,it,expect} from "vitest";
-import { max , fizzBuzz} from "../src/intro.js";
+import { max , fizzBuzz, calculateAverage} from "../src/intro.js";
 
 describe('max', () => {
   it('should return the first argument if it is greater', () => {
@@ -23,20 +23,16 @@ describe('max', () => {
 describe('max', () => {
   it('should return the first argument if it is greater', () => {
     expect(max(2,1)).toBe(2);
-  })
-})
+  });
 
-describe('max', () => {
   it('should return the second argument if it is greater', () => {
     expect(max(1,2)).toBe(2);
-  })
-})
+  });
 
-describe('max', () => {
   it('should return the first argument if both are equal', () => {
     expect(max(2,2)).toBe(2);
-  })
-})
+  });
+});
 
 
 //! Testing the fizzBuzz function
@@ -45,24 +41,37 @@ describe('fizzBuzz', () => {
   it('should return FizzBuzz if the number is divisible by both 3 and 5', () => {
     expect(fizzBuzz(15)).toBe('FizzBuzz');
   })
-})
 
-describe('fizzBuzz', () => {
   it('should return Fizz if the number is only divisible by 3', () => {
     expect(fizzBuzz(3)).toBe('Fizz');
   })
-})
 
-describe('fizzBuzz', () => {
   it('should return Buzz if the number is only divisible by 5', () => {
     expect(fizzBuzz(5)).toBe('Buzz');
   })
-})
 
-describe('fizzBuzz', () => {
   it('should return number as a string if the number is not divisible by either 3 or 5', () => {
     expect(fizzBuzz(1)).toBe('1');
   })
 })
 
+//! Test Driven Development (TDD) approach 
+// In TDD, we write the tests first and then implement the function to make the tests pass.
 
+describe('calculateAverage', () => {
+  it('should return NaN if given an empty array', () => {
+    expect(calculateAverage([])).toBe(NaN);
+  });
+
+  it('should calculate the average of an array with a single element', () => {
+    expect(calculateAverage([1])).toBe(1);
+  });
+
+  it('should calculate the average of an array with two elements', () => {
+    expect(calculateAverage([1, 2])).toBe(1.5);
+  });
+
+  it('should calculate the average of an array with three elements', () => {
+    expect(calculateAverage([1, 2, 3])).toBe(2);
+  });
+});
